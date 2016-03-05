@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_PALjQNjEEeWFe5h6wMAqiA">
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TwinANjcEeWFe5h6wMAqiA" name="String"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_sHmRcNjcEeWFe5h6wMAqiA" name="Float"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_SuqAINjEEeWFe5h6wMAqiA" name="BookShop">
+    <ownedAttribute xmi:id="_oY5iMNjIEeWFe5h6wMAqiA" name="books" type="_YFF5UNjEEeWFe5h6wMAqiA" aggregation="composite" association="_TJaFoNjIEeWFe5h6wMAqiA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5f9JwNjIEeWFe5h6wMAqiA" value="1000"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YFF5UNjEEeWFe5h6wMAqiA" name="Book">
+    <ownedAttribute xmi:id="_q6v5QNjbEeWFe5h6wMAqiA" name="title" type="_TwinANjcEeWFe5h6wMAqiA"/>
+    <ownedAttribute xmi:id="_gI98QNjcEeWFe5h6wMAqiA" name="authors" type="_TwinANjcEeWFe5h6wMAqiA"/>
+    <ownedAttribute xmi:id="_xxy0INjcEeWFe5h6wMAqiA" name="price" type="_sHmRcNjcEeWFe5h6wMAqiA"/>
+    <ownedAttribute xmi:id="_2QiQUNjcEeWFe5h6wMAqiA" name="ISBN" type="_TwinANjcEeWFe5h6wMAqiA"/>
+    <ownedAttribute xmi:id="_-0tQ0NjcEeWFe5h6wMAqiA" name="summary" type="_TwinANjcEeWFe5h6wMAqiA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_TJaFoNjIEeWFe5h6wMAqiA" name="books" memberEnd="_bY1lMNjIEeWFe5h6wMAqiA _oY5iMNjIEeWFe5h6wMAqiA">
+    <ownedEnd xmi:id="_bY1lMNjIEeWFe5h6wMAqiA" type="_SuqAINjEEeWFe5h6wMAqiA" association="_TJaFoNjIEeWFe5h6wMAqiA"/>
+  </packagedElement>
+</uml:Model>

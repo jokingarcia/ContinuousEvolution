@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<project name="bookshop2swml" default="run" basedir=".">
+	 
+	<target name="run">
+		
+		<atl.loadModel name="ATL" metamodel="MOF" path="../metamodels/ATL.ecore" />
+		<atl.loadModel name="UML" metamodel="MOF" path="../metamodels/UML.ecore" />
+		<!--<atl.loadModel name="SWML" metamodel="MOF" path="../metamodels/SWML.ecore" />-->
+		
+		<atl.loadModel name="UML" metamodel="UML" path="../models/BookShop.uml" />
+		<!--<atl.loadModel name="SWML" metamodel="SWML" path="../models/sWML_Model.xmi" />-->
+		
+		<atl.loadModel name="ATLinstance" metamodel="ATL" path="../transformations/BookShop2sWML.atl">
+			<injector name="ATL"/>
+		</atl.loadModel>
+		
+		<atl.saveModel model="ATLinstance" path="../models/BookShop2sWML.xmi"/>
+				
+	</target>
+</project>

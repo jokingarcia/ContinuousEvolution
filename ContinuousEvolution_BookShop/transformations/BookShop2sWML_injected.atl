@@ -1,0 +1,51 @@
+-- @path UML=/ContinuousEvolution_BookShop_ATL/metamodels/UML.ecore
+-- @path HTML=/ContinuousEvolution_BookShop_ATL/metamodels/SWML.ecore
+module BookShop2sWML;
+create OUT : SWML from IN : UML;
+
+rule Model2WebModel {
+ from
+  s : UML!Model
+ to
+  t : SWML!WebModel (
+   hypertext <- hl,
+   content <- cl
+  ),
+  hl : SWML!StructureLayer (
+   pages <- Sequence {sp}
+  ),
+  cl : SWML!ContentLayer (
+   classes <- s.packagedElement->select(e |
+    e.oclIsTypeOf(UML!Class) and e.name = 'Book'
+   )
+  ),
+  sp : SWML!StaticPage (
+   name <- 'createBook'
+  )
+}
+
+rule Book2Class {
+ from
+  s : UML!Class
+  (
+   s.name = 'Book'
+  )
+ to
+  t : SWML!Class (
+   name <- s.name,
+   attributes <- s.ownedAttribute
+  )
+}
+
+rule Property2Attribute {
+ from
+  s : UML!Property
+  (
+   s.type.name = 'String' or s.type.name = 'Float'
+  )
+ to
+  input : SWML!Attribute (
+   name <- s.name,
+   type <- s.type.name
+  )
+}

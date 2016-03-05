@@ -1,0 +1,102 @@
+module Adaptation; -- Module Template
+create OUT : ATL from IN : ATL, diff : DIFF;
+
+------------------------------------------------------------------------------
+--     _  _               _    _          _  _
+--    |_||_ |\ | /_\ |\/||_   |  |   /_\ |_ |_
+--    |\ |_ | \|/   \|  ||_   |_ |_ /   \ _| _|
+-------------------------------------------------------------------------------
+helper def : idUpdateMetaclass : Integer = 1;
+
+--Retrieve right UpdateAttributes
+helper def : getUpdateAttributesRight : Sequence(String) =
+	if DIFF!UpdateAttribute.allInstances()->asSequence()->select(e|e.attribute.toString().split('!')->last()='name').size()>0 then
+		DIFF!UpdateAttribute.allInstances()->asSequence()->select(e|e.attribute.toString().split('!')->last()='name')
+		->collect(e|e.rightElement.toString().split('!')->last())
+	else
+		Sequence{}
+	endif;
+
+--Retrieve left UpdateAttributes
+helper def : getUpdateAttributesLeft : Sequence(String) =
+	if DIFF!UpdateAttribute.allInstances()->asSequence()->select(e|e.attribute.toString().split('!')->last()='name').size()>0 then
+		DIFF!UpdateAttribute.allInstances()->asSequence()->select(e|e.attribute.toString().split('!')->last()='name')
+		->collect(e|e.leftElement.toString().split('!')->last())
+	else
+		Sequence{}
+	endif;
+	
+
+--returns the rightElement of the leftElement in the param
+helper def : getUpdateAttributeRightInclude (param : String) : String =
+	if DIFF!UpdateAttribute.allInstances()->asSequence()->select(e|e.attribute.toString().split('!')->last()='name')
+	->select(e|e.leftElement.toString().split('!')->last()=param).size()>0 then
+		DIFF!UpdateAttribute.allInstances()->asSequence()->select(e|e.attribute.toString().split('!')->last()='name')
+		->select(e|e.leftElement.toString().split('!')->last()=param)
+		->collect(e|e.rightElement.toString().split('!')->last())->first()
+	else
+		Sequence{}
+	endif;
+	
+
+--#############################################################################
+--################################################################################
+--##############################################################################
+--###############################################################################
+--##############################################################################
+--#############################################################################
+--############################################################################
+--#######################RULES################################################
+--#############################################################################
+--#############################################################################
+--###############################################################################
+--#################################################################################
+--#################################################################################
+--#################################################################################
+--#################################################################################
+
+------------------------------------------------------------------------------
+--     _  _               _    _          _  _
+--    |_||_ |\ | /_\ |\/||_   |  |   /_\ |_ |_
+--    |\ |_ | \|/   \|  ||_   |_ |_ /   \ _| _|
+-------------------------------------------------------------------------------
+rule OclModelElement_Renameclass {
+	from
+		s : ATL!OclModelElement
+		(
+			if thisModule.getUpdateAttributesLeft->includes(s.name) then
+				true
+			else
+				false
+			endif
+		)
+	to
+		t : ATL!OclModelElement(
+			model <- s.model,	
+			name <- thisModule.getUpdateAttributeRightInclude(s.name),
+			definitions <- s.definitions,
+			oclExpression <- s.oclExpression,
+			operation <- s.operation,
+			mapType2 <- s.mapType2,
+			attribute <- s.attribute,
+			mapType <- s.mapType,
+			collectionTypes <- s.collectionTypes,
+			tupleTypeAttribute <- s.tupleTypeAttribute,
+			variableDeclaration <- s.variableDeclaration,
+			type <- s.type,
+			ifExp3 <- s.ifExp3,
+			appliedProperty <- s.appliedProperty,
+			collection <- s.collection,
+			letExp <- s.letExp,
+			loopExp <- s.loopExp,
+			parentOperation <- s.parentOperation,
+			initializedVariable <- s.initializedVariable,
+			ifExp2 <- s.ifExp2,
+			owningOperation <- s.owningOperation,
+			ifExp1 <- s.ifExp1,
+			owningAttribute <- s.owningAttribute,
+			location <- s.location,
+			commentsBefore <- s.commentsBefore,
+			commentsAfter <- s.commentsAfter
+		)
+}

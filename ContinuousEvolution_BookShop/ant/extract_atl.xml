@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<project name="bookshop2swml" default="run" basedir=".">
+	
+	<target name="run">
+		<atl.loadModel name="ATL" metamodel="MOF" path="../metamodels/ATL.ecore" />
+		<atl.loadModel name="ATLinstance" metamodel="ATL" path="../models/BookShop2sWML_v2.xmi"/>
+			
+		<atl.saveModel model="ATLinstance" path="../transformations/BookShop2sWML_injected.atl" >
+			<extractor name="ATL"/>
+		</atl.saveModel>
+	</target>
+</project>

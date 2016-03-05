@@ -1,0 +1,34 @@
+texttransformation HTMLModel2HTMLCode (in ec : "Html") {
+	//Generates a html file
+	property MAP_GENERATOR_PATH : String = "C:\\Users\\Jokin Garcia\\Dropbox\\workspace_ContinuousEvolution\\ContinuousEvolution_BookShop\\classes\\";
+	property MAP_GENERATOR_MAIN : String = "createBook_generated.html";
+	var fileMapGeneratorName : String = MAP_GENERATOR_PATH + MAP_GENERATOR_MAIN;
+	
+	ec.WebPage::main() {
+		file f (fileMapGeneratorName);
+		
+		//HTML
+		f.println("<html>");
+		f.println("<head>");
+		f.println("  <meta charset=\"utf-8\"/>");
+		f.println("  <title>Book shop</title>");
+		f.println("</head>");
+		f.println("<body>");
+		f.println("  <form method=\"POST\" action=\"post.php\" enctype=\"multipart/form-data\">");
+		f.println("  <fieldset>");
+		f.println("    <legend>Create book</legend>");
+		
+		//Input and labels
+		ec.objectsOfType(ec.Input)->forEach(ecc:ec.Input) {
+			f.println("    <p>" + ecc.name + ":</p>");
+			f.println("    <p> <input type=\"text\" name=" + ecc.name + " value=\"\" /></p>");
+		}
+		f.println("  </fieldset>");
+		f.println("  <input type=\"submit\" name=\"send\" value=\"Send\" />");
+		f.println("</form>");
+		f.println("</body>");
+		f.println("</html>");
+	
+	}//main
+	
+}
