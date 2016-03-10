@@ -38,8 +38,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diff" eType="#//DiffModel"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="ecore:EClass http://www.eclipse.org/emf/compare/match/1.1#//MatchModel"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElementChange" eSuperTypes="#//DiffElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElementChangeLeftTarget" eSuperTypes="#//ModelElementChange">

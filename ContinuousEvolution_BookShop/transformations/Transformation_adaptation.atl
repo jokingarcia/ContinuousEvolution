@@ -1,5 +1,5 @@
 module Adaptation; -- Module Template
-create OUT : ATL from IN : ATL, diff : DIFF;
+create OUT : ATL refining IN : ATL, diff : DIFF;
 
 ------------------------------------------------------------------------------
 --     _  _               _    _          _  _

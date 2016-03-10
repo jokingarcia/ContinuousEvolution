@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="swml" nsURI="http://www.mdse-book.org/swml/" nsPrefix="swml">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="swml_v2" nsURI="http://www.mdse-book.org/swml_v2/" nsPrefix="swml_v2">
   <eAnnotations source="gmf">
     <details key="foo" value="bar"/>
   </eAnnotations>
@@ -9,7 +9,7 @@
       <details key="foo" value="bar"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hypertext" lowerBound="1"
-        eType="#//StructureLayer" containment="true">
+        eType="#//NavigationLayer" containment="true">
       <eAnnotations source="gmf.compartment">
         <details key="foo" value="bar"/>
       </eAnnotations>
@@ -22,7 +22,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StructureLayer">
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationLayer">
     <eAnnotations source="gmf.node">
       <details key="label" value="Hypertext"/>
       <details key="figure" value="rectangle"/>

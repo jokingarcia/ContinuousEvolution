@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<swml:WebModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swml="http://www.mdse-book.org/swml/">
+  <hypertext>
+    <pages xsi:type="swml:StaticPage" name="createBook"/>
+  </hypertext>
+  <content>
+    <classes name="Book">
+      <attributes name="title" type="String"/>
+      <attributes name="authors" type="String"/>
+      <attributes name="price" type="Float"/>
+      <attributes name="ISBN" type="String"/>
+      <attributes name="summary" type="String"/>
+    </classes>
+  </content>
+</swml:WebModel>

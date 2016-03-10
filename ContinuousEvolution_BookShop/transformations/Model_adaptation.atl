@@ -1,0 +1,107 @@
+module Model_Adaptation; -- Module Template
+
+create OUT : SWML_v2 from IN : SWML;
+
+rule Renameclass {
+	from
+		s : SWML!HypertextLayer
+
+	to
+		t : SWML_v2!NavigationLayer(
+			pages <- s.pages
+		)
+	do{'rename class'.println();}
+}
+
+---------------------------Copy elements------------------------------------------
+
+rule WebModel2WebModel {
+	from
+		s : SWML!WebModel
+	to
+		t : SWML_v2!WebModel(
+			hypertext <- s.hypertext,
+			content <- s.content,
+			name <- s.name
+		)
+}
+
+rule ContentLayer2ContentLayer {
+	from
+		s : SWML!ContentLayer
+	to
+		t : SWML_v2!ContentLayer(
+			classes <- s.classes
+		)
+}
+rule Class2Class {
+	from
+		s : SWML!Class
+	to
+		t : SWML_v2!Class(
+			attributes <- s.attributes,
+			representativeAttribute <- s.representativeAttribute,
+			name <- s.name
+		)
+}
+rule Attribute2Attribute {
+	from
+		s : SWML!Attribute
+	to
+		t : SWML_v2!Attribute(
+			name <- s.name,
+			type <- s.type
+		)
+}
+rule IndexPage2IndexPage {
+	from
+		s : SWML!IndexPage
+	to
+		t : SWML_v2!IndexPage(
+			size <- s.size,
+			displayedPage <- s.displayedPage,
+			name <- s.name,
+			links <- s.links
+		)
+}
+rule DetailsPage2DetailsPage {
+	from
+		s : SWML!DetailsPage
+	to
+		t : SWML_v2!DetailsPage(
+			displayedPage <- s.displayedPage,
+			name <- s.name,
+			links <- s.links
+		)
+}
+rule StaticPage2StaticPage {
+	from
+		s : SWML!StaticPage
+	to
+		t : SWML_v2!StaticPage(
+			name <- s.name,
+			links <- s.links
+		)
+}
+rule Link2Link {
+	from
+		s : SWML!Link
+	to
+		t : SWML_v2!Link(
+			target <- s.target
+		)
+}
+rule NCLink2NCLink {
+	from
+		s : SWML!NCLink
+	to
+		t : SWML_v2!NCLink(
+		)
+}
+rule CLink2CLink {
+	from
+		s : SWML!CLink
+	to
+		t : SWML_v2!CLink(
+		)
+}
