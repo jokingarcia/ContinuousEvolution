@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<swml:WebModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swml="http://www.mdse-book.org/swml/">
+<swml_v2:WebModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swml_v2="http://www.mdse-book.org/swml_v2/">
   <hypertext>
-    <pages xsi:type="swml:StaticPage" name="createBook"/>
+    <pages xsi:type="swml_v2:IndexPage" name="index BookShop" size="10">
+      <links/>
+      <links/>
+      <links/>
+    </pages>
+    <pages xsi:type="swml_v2:IndexPage" name="index Book" size="10">
+      <links/>
+      <links/>
+      <links/>
+    </pages>
   </hypertext>
   <content>
+    <classes name="BookShop"/>
     <classes name="Book">
       <attributes name="title" type="String"/>
       <attributes name="authors" type="String"/>
@@ -12,4 +22,4 @@
       <attributes name="summary" type="String"/>
     </classes>
   </content>
-</swml:WebModel>
+</swml_v2:WebModel>

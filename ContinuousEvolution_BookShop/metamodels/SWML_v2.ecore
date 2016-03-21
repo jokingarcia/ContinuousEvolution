@@ -81,7 +81,7 @@
         eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticPage" eSuperTypes="#//Page"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Link">
     <eAnnotations source="gmf.link">
       <details key="target" value="target"/>
       <details key="style" value="solid"/>

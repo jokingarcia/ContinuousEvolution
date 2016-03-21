@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="diff"
-    nsURI="http://www.eclipse.org/emf/compare/diff/1.1" nsPrefix="diff">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="diff" nsURI="http://www.eclipse.org/emf/compare/diff/1.1" nsPrefix="diff">
   <eClassifiers xsi:type="ecore:EClass" name="DiffModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="left" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -18,7 +16,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="conflicting" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//DifferenceKind"
-        changeable="false" transient="true" defaultValueLiteral="" derived="true"/>
+        changeable="false" transient="true" defaultValueLiteral="Addition" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericDiffElement" eSuperTypes="#//DiffElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftElement" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>

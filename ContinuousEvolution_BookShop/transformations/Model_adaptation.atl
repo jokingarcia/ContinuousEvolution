@@ -59,7 +59,7 @@ rule IndexPage2IndexPage {
 	to
 		t : SWML_v2!IndexPage(
 			size <- s.size,
-			displayedPage <- s.displayedPage,
+--			displayedPage <- s.displayedPage,
 			name <- s.name,
 			links <- s.links
 		)

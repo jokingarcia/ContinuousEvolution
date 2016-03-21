@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="Cp1252"?>
+<diff:DiffModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diff="http://www.eclipse.org/emf/compare/diff/1.1" left="metamodels/SWML.ecore" right="metamodels/SWML_v2.ecore">
+  <ownedElements xsi:type="diff:DiffGroup">
+    <subDiffElements xsi:type="diff:DiffGroup">
+      <subDiffElements xsi:type="diff:DiffGroup">
+        <subDiffElements xsi:type="diff:UpdateAttribute">
+          <attribute href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+          <leftElement href="metamodels/SWML.ecore#//HypertextLayer"/>
+          <rightElement href="metamodels/SWML_v2.ecore#//NavigationLayer"/>
+        </subDiffElements>
+        <leftParent href="metamodels/SWML.ecore#//HypertextLayer"/>
+      </subDiffElements>
+      <leftParent href="metamodels/SWML.ecore#/"/>
+    </subDiffElements>
+  </ownedElements>
+</diff:DiffModel>

@@ -8,4 +8,12 @@
 
   
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated diff -->
+      <package
+            uri="http://www.eclipse.org/emf/compare/diff/1.1"
+            class="diff.DiffPackage"
+            genModel="metamodels/diff.genmodel"/>
+   </extension>
+
 </plugin>

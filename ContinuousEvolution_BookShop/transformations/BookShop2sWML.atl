@@ -1,6 +1,5 @@
--- @path UML=/ContinuousEvolution_BookShop_ATL/metamodels/UML.ecore
--- @path HTML=/ContinuousEvolution_BookShop_ATL/metamodels/SWML.ecore
-
+-- @path UML=/ContinuousEvolution_BookShop_ATL/models/BookShop.uml
+-- @path SWML=/ContinuousEvolution_BookShop_ATL/models/sWML_Model_v2.xmi
 module BookShop2sWML;
 create OUT : SWML from IN : UML;
 
@@ -13,26 +12,52 @@ rule Model2WebModel {
 		content <- cl
     ),
 	hl : SWML!HypertextLayer(
-		pages <- Sequence{sp}
+		pages <- s.packagedElement->select(e|e.oclIsTypeOf(UML!Class))
 	),
 	cl : SWML!ContentLayer(
-		classes <- s.packagedElement->select(e|e.oclIsTypeOf(UML!Class) and e.name='Book')
-	),
-	sp : SWML!StaticPage(
-		name <- 'createBook'
-	)
+		classes <- s.packagedElement->select(e|e.oclIsTypeOf(UML!Class))
+	)		
 }
 
 rule Book2Class {
   from 
-  	s : UML!Class(
-  		s.name = 'Book'
-  	)
+  	s : UML!Class
   to
+  	page_1 : SWML!DynamicPage(
+		name <- 'create '.concat(s.name)
+	),
+	page_2 : SWML!DynamicPage(
+		name <- 'update '.concat(s.name)
+	),
+	page_3 : SWML!DynamicPage(
+		name <- 'delete '.concat(s.name)
+	),
+	page_4 : SWML!IndexPage(
+		name <- 'index '.concat(s.name),
+		size <- 10,
+		links <- Sequence{link_1, link_2, link_3}
+	),
+	link_1 : SWML!Link(
+		target <- page_1
+	),
+	link_2 : SWML!Link(
+		target <- page_2
+	),
+	link_3 : SWML!Link(
+		target <- page_3
+	),
   	t : SWML!Class (
    		name <- s.name,
 		attributes <- s.ownedAttribute
     )
+	do{
+		thisModule.resolveTemp(s.refImmediateComposite(), 'hl').pages
+		<-thisModule.resolveTemp(s.refImmediateComposite(), 'hl').pages
+				-> union(Sequence{page_1, page_2, page_3, page_4});
+		thisModule.resolveTemp(s.refImmediateComposite(), 'cl').classes
+		<-thisModule.resolveTemp(s.refImmediateComposite(), 'cl').classes
+				-> union(Sequence{t});
+	}
 }
 
 rule Property2Attribute {

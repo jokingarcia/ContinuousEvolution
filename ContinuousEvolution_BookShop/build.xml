@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ContinuousEvolution_BookShop" default="compile" basedir=".">
+	<property name="lib.dir"     value="lib"/>
+	 <path id="classpath">
+	   <fileset dir="${lib.dir}" includes="**/*.jar"/>
+	 </path>
+ <!-- ANT will start execution from here by finding target "compile"  -->
+ <target name="compile" depends="clean">
+  <!-- Java compile parameters here  -->
+  <javac debug="true" debuglevel="lines,vars,source" srcdir="src" destdir="bin" classpathref="classpath" />
+ </target>
+
+ <!-- "compile" target depends on "clean" so It'll delete "bin" folder if exists and 
+   create new "bin" folder for compiles class file -->
+ <target name="clean">
+  <delete dir="bin" />
+  <mkdir dir="bin" />
+ </target>
+</project>
